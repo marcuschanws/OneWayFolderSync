@@ -1,6 +1,6 @@
-﻿================================================
-File Synchronisation Service Console Application
-================================================
+﻿==================================================
+Folder Synchronisation Service Console Application
+==================================================
 
 Tool Overview:
 --------------

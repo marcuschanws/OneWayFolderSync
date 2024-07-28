@@ -43,10 +43,8 @@ namespace FileSync
         Console.WriteLine(ex.ToString());
       }
 
-      if (System.Diagnostics.Debugger.IsAttached)
-      {
-        ReadKey();
-      }
+      Console.WriteLine("Press any key to exit.");
+      ReadKey();
     }
 
     private static Dictionary<string, string> ParseArguments(string[] args)
