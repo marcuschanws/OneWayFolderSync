@@ -1,4 +1,5 @@
 Folder Synchronisation Service Console Application
+==================================================
 
 Tool Overview:
 --------------
