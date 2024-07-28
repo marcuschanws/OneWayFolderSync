@@ -1,0 +1,12 @@
+C:\dev\git\FileSynchronisationService\FileSyncService.Library\bin\Debug\net8.0\FileSyncService.Library.deps.json
+C:\dev\git\FileSynchronisationService\FileSyncService.Library\bin\Debug\net8.0\FileSyncService.Library.dll
+C:\dev\git\FileSynchronisationService\FileSyncService.Library\bin\Debug\net8.0\FileSyncService.Library.pdb
+C:\dev\git\FileSynchronisationService\FileSyncService.Library\obj\Debug\net8.0\FileSyncService.Library.GeneratedMSBuildEditorConfig.editorconfig
+C:\dev\git\FileSynchronisationService\FileSyncService.Library\obj\Debug\net8.0\FileSyncService.Library.AssemblyInfoInputs.cache
+C:\dev\git\FileSynchronisationService\FileSyncService.Library\obj\Debug\net8.0\FileSyncService.Library.AssemblyInfo.cs
+C:\dev\git\FileSynchronisationService\FileSyncService.Library\obj\Debug\net8.0\FileSyncService.Library.csproj.CoreCompileInputs.cache
+C:\dev\git\FileSynchronisationService\FileSyncService.Library\obj\Debug\net8.0\FileSyncService.Library.dll
+C:\dev\git\FileSynchronisationService\FileSyncService.Library\obj\Debug\net8.0\refint\FileSyncService.Library.dll
+C:\dev\git\FileSynchronisationService\FileSyncService.Library\obj\Debug\net8.0\FileSyncService.Library.pdb
+C:\dev\git\FileSynchronisationService\FileSyncService.Library\obj\Debug\net8.0\ref\FileSyncService.Library.dll
+C:\dev\git\FileSynchronisationService\FileSyncService.Library\obj\Debug\net8.0\FileSyncService.Library.csproj.AssemblyReference.cache

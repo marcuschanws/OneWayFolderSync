@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "FileSync": {
+      "commandName": "Project",
+      "commandLineArgs": "source=\"source\" destination=\"dest\" log=\"log\" interval=10"
+    }
+  }
+}

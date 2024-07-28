@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34408.163
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileSync", "FileSync.csproj", "{3F36F3C5-DF71-4E43-A3C2-CAD72646405C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileSync.Library", "..\FileSyncService.Library\FileSync.Library.csproj", "{736FD556-B82C-426A-919A-6EE72B26A54C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3F36F3C5-DF71-4E43-A3C2-CAD72646405C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F36F3C5-DF71-4E43-A3C2-CAD72646405C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F36F3C5-DF71-4E43-A3C2-CAD72646405C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F36F3C5-DF71-4E43-A3C2-CAD72646405C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{736FD556-B82C-426A-919A-6EE72B26A54C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{736FD556-B82C-426A-919A-6EE72B26A54C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{736FD556-B82C-426A-919A-6EE72B26A54C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{736FD556-B82C-426A-919A-6EE72B26A54C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {80D5F47E-C1B4-4841-B3FC-2722248D16E5}
+	EndGlobalSection
+EndGlobal
