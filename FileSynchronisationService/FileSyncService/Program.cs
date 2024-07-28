@@ -43,7 +43,6 @@ namespace FileSync
         Console.WriteLine(ex.ToString());
       }
 
-      Console.WriteLine("Press any key to exit.");
       ReadKey();
     }
 

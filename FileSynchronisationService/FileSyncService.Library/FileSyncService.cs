@@ -43,6 +43,9 @@ namespace FileSync.Library
     {
       try
       {
+        //Ensure that source and destination folders will be recreated if they get deleted during runtime
+        EnsureSourceAndDestFoldersExist();
+
         string[] sourceFiles = Directory.GetFiles(_sourcePath, "*.*", SearchOption.AllDirectories);
         string[] destFiles = Directory.GetFiles(_destPath, "*.*", SearchOption.AllDirectories);
 
@@ -118,7 +121,7 @@ namespace FileSync.Library
           FileInfoSource = new FileInfo(Path.Combine(_sourcePath, file));
           FileInfoDest = new FileInfo(Path.Combine(_destPath, file));
 
-          EnsureFileInfosExist();
+          IsFileInfosExist();
 
           if (!IsFilesIdentical())
           {
@@ -246,7 +249,22 @@ namespace FileSync.Library
       return true;
     }
 
-    private void EnsureFileInfosExist()
+    private void EnsureSourceAndDestFoldersExist()
+    {
+      if (!Directory.Exists(_sourcePath))
+      {
+        Log($"{_sourcePath} could not be found. Directory created.");
+        Directory.CreateDirectory(_sourcePath);
+      }
+
+      if (!Directory.Exists(_destPath))
+      {
+        Log($"{_destPath} could not be found. Directory created.");
+        Directory.CreateDirectory(_destPath);
+      }
+    }
+
+    private void IsFileInfosExist()
     {
       if (FileInfoSource.Exists == false)
         LogError(new ArgumentNullException(nameof(FileInfoSource)));
