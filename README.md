@@ -1,6 +1,4 @@
-==================================================
 Folder Synchronisation Service Console Application
-==================================================
 
 Tool Overview:
 --------------
@@ -21,9 +19,11 @@ Example Commands:
 	source="C:\Path\To\SourceFolder" destination="C:\Path\To\DestinationFolder" log="C:\Path\To\LogFolder" interval=60
 
 Should you wish to omit only the destination folder:
+-----------------:
 	source="C:\Path\To\SourceFolder" log="C:\Path\To\LogFolder" interval=60
 
 Should you wish to omit the time interval:
+-----------------:
 	source="C:\Path\To\SourceFolder" destination="C:\Path\To\DestinationFolder" log="C:\Path\To\LogFolder"
 
 Should you wish to omit all input parameters and the values provided in the configuration file will be used. If invalid values are found, the tool will ask you to re-enter the values.
