@@ -48,22 +48,21 @@ namespace FileSync.Library
 
         string[] sourceFiles = Directory.GetFiles(_sourcePath, "*.*", SearchOption.AllDirectories);
         string[] destFiles = Directory.GetFiles(_destPath, "*.*", SearchOption.AllDirectories);
+        string[] sourceDirectories = Directory.GetDirectories(_sourcePath, "*", SearchOption.AllDirectories);
+        string[] destDirectories = Directory.GetDirectories(_destPath, "*", SearchOption.AllDirectories);
 
         // Obtain relative file paths
         var sourceFilesRelative = sourceFiles.Select(s => s.Substring(_sourcePath.Length + 1)).ToHashSet();
         var destFilesRelative = destFiles.Select(d => d.Substring(_destPath.Length + 1)).ToHashSet();
-        // Find files to copy
-        var filesToCopy = sourceFilesRelative.Except(destFilesRelative).ToList();
-        var filesToDelete = destFilesRelative.Except(sourceFilesRelative).ToList();
-
-        await CopyFilesFromSourceToDest(filesToCopy);
-
-        string[] sourceDirectories = Directory.GetDirectories(_sourcePath, "*", SearchOption.AllDirectories);
-        string[] destDirectories = Directory.GetDirectories(_destPath, "*", SearchOption.AllDirectories);
         // Obtain relative directory paths
         var sourceDirectoriesRelative = sourceDirectories.Select(s => s.Substring(_sourcePath.Length + 1)).ToHashSet();
         var destDirectoriesRelative = destDirectories.Select(s => s.Substring(_destPath.Length + 1)).ToHashSet();
 
+        // Find files to copy
+        var filesToCopy = sourceFilesRelative.Except(destFilesRelative).ToList();
+        var filesToDelete = destFilesRelative.Except(sourceFilesRelative).ToList();
+
+        await CopyFilesAndDirsFromSourceToDest(filesToCopy, sourceDirectoriesRelative);
         DeleteFilesAndDirsFromDest(filesToDelete, sourceDirectoriesRelative, destDirectoriesRelative);
         await UpdateFilesInDest(sourceFilesRelative, destFilesRelative);
       }
@@ -78,11 +77,14 @@ namespace FileSync.Library
     }
 
     /// <summary>
-    /// Copy files from source to destination folder
+    /// Copy files and directories (can be empty) from source to destination folder
     /// </summary>
     /// <param name="filesToCopy"></param>
-    private async Task CopyFilesFromSourceToDest(List<string> filesToCopy)
+    /// <param name="sourceDirectoriesRelative"></param>
+    /// <returns></returns>
+    private async Task CopyFilesAndDirsFromSourceToDest(List<string> filesToCopy, HashSet<string> sourceDirectoriesRelative)
     {
+      // Copy files from source
       foreach (var file in filesToCopy)
       {
         try
@@ -95,11 +97,31 @@ namespace FileSync.Library
             Directory.CreateDirectory(destFileDir);
 
           await CopyFileAsync(sourceFile, destFile);
-          Log($"File copied from source: {file} and created in destination folder: {destFile}");
+          Log($"File copied from source: {sourceFile} and created in destination folder: {destFile}");
         }
         catch (Exception ex)
         {
           Log($"Error copying following file from source: {file}");
+          LogError(ex);
+        }
+      }
+
+      // Copy directories from source
+      foreach (var dir in sourceDirectoriesRelative)
+      {
+        try
+        {
+          var sourceDir = Path.Combine(_sourcePath, dir);
+          var destDir = Path.Combine(_destPath, dir);
+          if (destDir != null && !Directory.Exists(destDir))
+          {
+            Directory.CreateDirectory(destDir);
+            Log($"Directory copied from source: {sourceDir} and created in destination folder: {destDir}");
+          }
+        }
+        catch (Exception ex)
+        {
+          Log($"Error copying following directory from source: {dir}");
           LogError(ex);
         }
       }
@@ -163,7 +185,7 @@ namespace FileSync.Library
           var destFile = Path.Combine(_destPath, file);
 
           File.Delete(destFile);
-          Log($"File deleted from destination folder: {file}");
+          Log($"File deleted from destination folder: {destFile}");
         }
         catch (Exception ex)
         {
@@ -181,7 +203,7 @@ namespace FileSync.Library
           var destSubDir = Path.Combine(_destPath, dir);
 
           Directory.Delete(destSubDir, true);
-          Log($"Deleted directory from destination folder: {dir}");
+          Log($"Deleted directory from destination folder: {destSubDir}");
         }
         catch (Exception ex)
         {

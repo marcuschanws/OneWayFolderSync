@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "dRNTyYLHmKU0Ddg1cEwi82MKpnErwiWmGWEGKV2Z2QiTRd1gL5X3pWLPT44EYUzqNr+N9iaPtGXYJpSrFcwfGw==",
+  "success": true,
+  "projectFilePath": "C:\\dev\\git\\FileSynchronisationService\\FileSyncService\\FileSync.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\m.chan\\.nuget\\packages\\system.configuration.configurationmanager\\8.0.0\\system.configuration.configurationmanager.8.0.0.nupkg.sha512",
+    "C:\\Users\\m.chan\\.nuget\\packages\\system.diagnostics.eventlog\\8.0.0\\system.diagnostics.eventlog.8.0.0.nupkg.sha512",
+    "C:\\Users\\m.chan\\.nuget\\packages\\system.security.cryptography.protecteddata\\8.0.0\\system.security.cryptography.protecteddata.8.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
